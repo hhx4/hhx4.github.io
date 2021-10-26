@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://hhx4.github.io">
-  <title>Archives: 2021 | 航行</title>
+  <title>航行</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我喜欢挑战">
-<meta property="og:type" content="website">
+  <meta name="description" content="##centos7的安装：使用virtualbox+vagrant工具搭建虚拟机：注意事项：virtual版本在6.1及以上的需要手动配置vagrant配置文件，否则无法识别；virtualbox安装需要cpu虚拟化软件安装完毕后：使用windows的命令窗口： 1234567891011121314# 自动初始化一个环境，会在命令使用的目录创建一个虚拟机配置文件和环境vagrant init c">
+<meta property="og:type" content="article">
 <meta property="og:title" content="航行">
-<meta property="og:url" content="https://hhx4.github.io/archives/2021/index.html">
+<meta property="og:url" content="https://hhx4.github.io/2021/10/26/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="航行">
-<meta property="og:description" content="我喜欢挑战">
+<meta property="og:description" content="##centos7的安装：使用virtualbox+vagrant工具搭建虚拟机：注意事项：virtual版本在6.1及以上的需要手动配置vagrant配置文件，否则无法识别；virtualbox安装需要cpu虚拟化软件安装完毕后：使用windows的命令窗口： 1234567891011121314# 自动初始化一个环境，会在命令使用的目录创建一个虚拟机配置文件和环境vagrant init c">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-10-26T08:42:17.851Z">
+<meta property="article:modified_time" content="2021-06-04T17:56:11.816Z">
 <meta property="article:author" content="hhx4">
 <meta name="twitter:card" content="summary">
   
@@ -142,70 +144,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-环境搭建" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##centos7的安装：<br>使用virtualbox+vagrant工具搭建虚拟机：<br>注意事项：virtual版本在6.1及以上的需要手动配置vagrant配置文件，否则无法识别；virtualbox安装需要cpu虚拟化<br>软件安装完毕后：使用windows的命令窗口：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 自动初始化一个环境，会在命令使用的目录创建一个虚拟机配置文件和环境</span><br><span class="line">vagrant init centos/7</span><br><span class="line"></span><br><span class="line"># 从镜像源安装一个已经配置好的centos7并启动</span><br><span class="line">vagrant up</span><br><span class="line"></span><br><span class="line"># 使用该命令连接虚拟机</span><br><span class="line">vagrant ssh</span><br><span class="line"></span><br><span class="line"># 修改虚拟机ip用于外部连接</span><br><span class="line"># 在外部使用ipconfig命令查询virtualbox虚拟机ip</span><br><span class="line"># 修改vagrant初始化环境下的Vagrantfile文件，ip为上述ip同一网段ip</span><br><span class="line"># config.vm.network &quot;private_network&quot;,ip:&quot;192.168.56.10&quot;</span><br><span class="line"># ping测试</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 更改文件以使用ssh方式登录linux；</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"># 修改</span><br><span class="line">PasswordAuthentication yes</span><br><span class="line"># 重启</span><br><span class="line">service sshd restart</span><br><span class="line"># 账号root</span><br><span class="line"># 密码vagrant</span><br></pre></td></tr></table></figure>
+<h2 id="docker工具的安装"><a href="#docker工具的安装" class="headerlink" title="docker工具的安装"></a>docker工具的安装</h2><p>docker是一个服务容器化的管理工具，参照docker官方安装即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"># 卸载系统之前存在的docker </span><br><span class="line">sudo yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-engine</span><br><span class="line">                  </span><br><span class="line">                  </span><br><span class="line">sudo yum install -y yum-utils</span><br><span class="line"></span><br><span class="line"># 配置yum镜像</span><br><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"># 安装io文件</span><br><span class="line">sudo yum install docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br><span class="line"># 启动服务</span><br><span class="line">sudo systemctl start docker</span><br><span class="line"># 设置开机自启动</span><br><span class="line">sudo systemctl enable docker</span><br><span class="line"></span><br><span class="line"># 测试结果</span><br><span class="line">docker -v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 配置镜像加速，修改文件</span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://chqac97z.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"># 重启服务</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>##docker安装mysql及redis</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"># 从docker源处安装mysql,5.7指版本号默认最新</span><br><span class="line">sudo docker pull mysql:5.7</span><br><span class="line"></span><br><span class="line"># 用于配指映射，即虚拟容器和linux载体的映射</span><br><span class="line"># -p指定端口映射 --name指定容器名字 -v目录挂载   -e设置mysql参数 -d后台运行</span><br><span class="line">sudo docker run -p 3306:3306 --name mysql \</span><br><span class="line">-v /mydata/mysql/log:/var/log/mysql \</span><br><span class="line">-v /mydata/mysql/data:/var/lib/mysql \</span><br><span class="line">-v /mydata/mysql/conf:/etc/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=root \</span><br><span class="line">-d mysql:5.7</span><br><span class="line"></span><br><span class="line"># 查看docker下的服务</span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"># 进入mysql容器,exit退出</span><br><span class="line">sudo exec -it mysql bin/bash</span><br><span class="line"></span><br><span class="line"># centos7下加入mysql配置文件，</span><br><span class="line">vi /mydata/mysql/conf/my.conf</span><br><span class="line"># 以下内容</span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">init_connect=&#x27;SET collation_connection = utf8_unicode_ci&#x27;</span><br><span class="line">init_connect=&#x27;SET NAMES utf8&#x27;</span><br><span class="line">character-set-server=utf8</span><br><span class="line">collation-server=utf8_unicode_ci</span><br><span class="line">skip-character-set-client-handshake</span><br><span class="line">skip-name-resolve</span><br><span class="line"></span><br><span class="line"># 重启服务</span><br><span class="line">docker restart mysql</span><br><span class="line"></span><br><span class="line"># redis</span><br><span class="line">docker pull redis</span><br><span class="line"># 创建配置文件</span><br><span class="line">mkdir -p /mydata/redis/conf</span><br><span class="line">touch /mydata/redis/conf/redis.conf</span><br><span class="line"># 安装</span><br><span class="line">docker run -p 6379:6379 --name redis \</span><br><span class="line">-v /mydata/redis/data:/data \</span><br><span class="line">-v /mydata/redis/conf/redis.conf:/etc/redis/redis.conf \</span><br><span class="line">-d redis redis-server /etc/redis/redis.conf</span><br><span class="line">#进入</span><br><span class="line">docker exec -it redis redis-cli</span><br><span class="line">#修改redis的持久化</span><br><span class="line">vim /mydata/redis/conf/redis.conf</span><br><span class="line"># 插入下面内容</span><br><span class="line">appendonly yes</span><br><span class="line"></span><br><span class="line">#重启服务</span><br><span class="line">docker restart redis</span><br><span class="line"></span><br><span class="line">#redis设置自启动</span><br><span class="line">docker update redis --restart=always</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>##开发工具<br>idea：插件需要mabatisx，lobok<br>maven<br>vscode：插件{<br>Auto Close Tag<br>Auto Rename Tag<br>Chinese<br>ESlint<br>HTML CSS Support<br>HTML Snippets<br>JavaScript ES6<br>Live Server<br>open in brower<br>Vetur<br>}<br>git<br>代码托管到gitee，需要在idea中安装插件gitee<br>将gitee绑定好自己的git 的ssh公钥；具体参照gitee说明；<br>可以使用自定义目录下的git终端：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 配置用户名</span><br><span class="line">git config --global user.name &quot;username&quot;  //(名字，随意写)</span><br><span class="line"></span><br><span class="line"># 配置邮箱</span><br><span class="line">git config --global user.email &quot;55333@qq.com&quot; // 注册账号时使用的邮箱</span><br><span class="line"></span><br><span class="line"># 配置ssh免密登录</span><br><span class="line">ssh-keygen -t rsa -C &quot;55333@qq.com&quot;</span><br><span class="line">三次回车后生成了密钥：公钥私钥</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line">也可以查看密钥</span><br><span class="line">浏览器登录码云后，个人头像上点设置--ssh公钥---随便填个标题---复制</span><br><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6MWhGXSKdRxr1mGPZysDrcwABMTrxc8Va2IWZyIMMRHH9Qn/wy3PN2I9144UUqg65W0CDE/thxbOdn78MygFFsIG4j0wdT9sdjmSfzQikLHFsJ02yr58V6J2zwXcW9AhIlaGr+XIlGKDUy5mXb4OF+6UMXM6HKF7rY9FYh9wL6bun9f1jV4Ydlxftb/xtV8oQXXNJbI6OoqkogPKBYcNdWzMbjJdmbq2bSQugGaPVnHEqAD74Qgkw1G7SIDTXnY55gBlFPVzjLWUu74OWFCx4pFHH6LRZOCLlMaJ9haTwT2DB/sFzOG/Js+cEExx/arJ2rvvdmTMwlv/T+6xhrMS3 553736044@qq.com</span><br><span class="line"></span><br><span class="line"># 测试</span><br><span class="line">ssh -T git@gitee.com</span><br><span class="line">测试成功，就可以无密给码云推送仓库了</span><br></pre></td></tr></table></figure>
+
+<p>idea的文件初始化：<br>从gitee 上新建工程gmall，.gitignore选中maven,生成/开发模型，<br>从idea的新建项目上选择版本控制-git，然后加上 【gitee上的项目连接；拉取创建的项目；<br>随后在该gmall目录下新建各个服务模块，<br>**<br>每个模块需要导入Springweb和Springrouting下的openFeign用于模块间的调用；<br>依次创建出以下服务，注意包名和模块名的规范化同一管理如 模块名gmall-XXX；包名com.xxx.gmall.xxx;</p>
+<p>商品服务product<br>存储服务ware<br>订单服务order<br>优惠券服务coupon<br>用户服务member</p>
+<p>创建完毕后从某一个模块复制一个pom.xml文件到最外层的gmall大目录，并修改它</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>[gmall包名】<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gmall<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>gmall<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">description</span>&gt;</span>聚合服务<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">module</span>&gt;</span>gmall-coupon<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">module</span>&gt;</span>gmall-member<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">module</span>&gt;</span>gmall-order<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">module</span>&gt;</span>gmall-product<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">module</span>&gt;</span>gmall-ware<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>从idea的maven工具窗口刷新可以看到gmall的root标识代表配置好了；<br>修改外层目录下的.gitignore,加上下面的东西以忽略一些无关文件；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">**/mvnw</span><br><span class="line">**/mvnw.cmd</span><br><span class="line">**/.mvn</span><br><span class="line">**/target/</span><br><span class="line">.idea</span><br><span class="line">**/.gitignore</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>idea使用alt+F12打开终端窗口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#加入修改到缓存</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">#提交到本地版本库</span><br><span class="line">git commit -m &quot;【修改日志】&quot;</span><br><span class="line"></span><br><span class="line">#推送到远端仓库如Git</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>数据库的初始化：<br>使用sql工具连接linux的MYsql数据库到<br>我是用的navicat<br>创建各个服务的数据库：<br>gmall_oms,gmall_pms,gmall_sms,gmall_ums,gmall_wms;<br>导入sql语句；</p>
+<p>人人开源的项目架构导入：人人开源是一个优秀的开源框架项目，在gitee上搜索即可；<br>在idea的终端窗口拉入三个相关项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">后台管理系统</span><br><span class="line">git clone https://gitee.com/renrenio/renren-fast.git</span><br><span class="line">前端页面</span><br><span class="line">git clone https://gitee.com/renrenio/renren-fast-vue.git</span><br><span class="line">快速构建代码工具</span><br><span class="line">git clone https://gitee.com/renrenio/renren-generator.git</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将前端页面的项目移动到vscode中进行开发，注意原目录项目的清除；<br>在总项目pom.xml中添加模块 <module>renren-fast</module> <module>renren-generator</module><br>打开renren-fast目录db下mysql.sql，在之前间的数据库同级下新建数据库gmall_admin，在这个数据库中执行；<br>修改renren-fast下的配置文件application.yml；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url: jdbc:mysql://192.168.56.10:3306/gmall_admin?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后运行项目；后台挂着</p>
+<p>使用VSCode中的前端项目renren-fast-vue使用前需要安装node.js，这是一个类似maven的前端构建工具<br>从官网下载安装 ，然后在vscode的项目目录下的终端执行命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line"><span class="meta">#</span><span class="bash">配置镜像源</span></span><br><span class="line">npm config set registry http://registry.npm.taobao.org/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定node-sass版本，这句等价于修改package.json文件了。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意不要指定4.9.2了</span></span><br><span class="line">npm install  node-sass@4.14</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">安装其他依赖：</span></span><br><span class="line">npm install</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动项目：</span></span><br><span class="line">npm run dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>启动之后，访问页面能看到登录验证码代表前后端搭建完成，关闭项目；</p>
+<p>idea中的项目修改renren-generator的配置文件application.yml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url: jdbc:mysql://192.168.56.10:3306/gmall_pms?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br></pre></td></tr></table></figure>
+<p>修改generator.properties</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 主目录</span><br><span class="line">mainPath=com.xxx</span><br><span class="line">#包名</span><br><span class="line">package=com.xxx.gmall</span><br><span class="line">#模块名</span><br><span class="line">moduleName=product</span><br><span class="line">#作者</span><br><span class="line">author=xx</span><br><span class="line">#email</span><br><span class="line">email=xxxx@xx.com</span><br><span class="line">#表前缀(类名不会包含表前缀) # 我们的pms数据库中的表的前缀都pms</span><br><span class="line"># 如果写了表前缀，每一张表对于的javaBean就不会添加前缀了</span><br><span class="line">tablePrefix=pms_</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注释掉暂时不用的东西；<br>注释renren-generator\src\main\resources\template/Controller中所有的@RequiresPermissions。## import org.apache.shiro.authz.annotation.RequiresPermissions;<br>执行该模块下的RenrenApplication；localhst:80访问，选中15个表，生成代码；<br>复制main的代码到idea的gmall-product目录main下</p>
+<p>新建一个gmall-common模块（maven项目），添加到主项目的模块依赖；<br>在pom.xml中加入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- mybatisPLUS--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--简化bean--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- httpcomponent包。发送http请求 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.httpcomponents<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>httpcore<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.4.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-lang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-lang<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 数据库驱动 https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--tomcat里一般都带--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将renren-fast模块下的util包下的PageUtils、R、Constant复制到commen模块下的对应目录<br>此外还有xss包和exception包也是对应的目录<br>删掉common里xss/xssfiler和XssHttpServletRequestWrapper</p>
+<p>然后在product项目中的pom.xml中加入下面内容，作为common的子项目</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.atguigu.gulimall<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gulimall-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在resource目录下新建application.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://192.168.56.10:3306/gmall_pms?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># MapperScan</span></span><br><span class="line"><span class="comment"># sql映射文件位置</span></span><br><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:/mapper/**/*.xml</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">      <span class="attr">id-type:</span> <span class="string">auto</span></span><br></pre></td></tr></table></figure>
+
+<p>启动类上加注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MapperScan(&quot;com.xxx.gmall.product.dao&quot;)</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">gmallProductApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        SpringApplication.run(gulimallProductApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>先不启动进行测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">gulimallProductApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    BrandService brandService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        BrandEntity brandEntity = <span class="keyword">new</span> BrandEntity();</span><br><span class="line">        brandEntity.setDescript(<span class="string">&quot;荣耀12&quot;</span>);</span><br><span class="line">        brandEntity.setName(<span class="string">&quot;华为p40&quot;</span>);</span><br><span class="line">        brandService.save(brandEntity);</span><br><span class="line">        System.out.println(<span class="string">&quot;保存成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>数据库查看数据是否存储brand表中；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">contextLoads2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		BrandEntity brandEntity = <span class="keyword">new</span> BrandEntity();</span><br><span class="line">		brandEntity.setBrandId(<span class="number">1L</span>);</span><br><span class="line">		brandEntity.setDescript(<span class="string">&quot;修改&quot;</span>);</span><br><span class="line">		brandService.updateById(brandEntity);</span><br><span class="line">		System.out.println(<span class="string">&quot;修改成功&quot;</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>方法二测试：查看数据库结果；</p>
+<p>优惠券服务自动生成<br>修改renren-generator工程下的generator.properties<br>表前缀和模块名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">moduleName=coupon</span><br><span class="line">tablePrefix=sms_</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>修改application.yml中url的数据库</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/10/26/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2021-10-26T08:42:17.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hhx4.github.io/2021/10/26/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/10/25/post/" class="archive-article-date">
-  	<time datetime="2021-10-25T15:10:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/10/25/post/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">post</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/10/25/post/">post</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#docker%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">docker工具的安装</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-  
-    </div></section>
   
 
-    
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+               new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "cmlYTAvaqgp9Te0uf0lMfERH-gzGzoHsz",
+            app_key: "aqdQ2dDzT76HuKt0O6XL3hP3",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+
+  </section>
+
+
+
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -228,8 +380,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
